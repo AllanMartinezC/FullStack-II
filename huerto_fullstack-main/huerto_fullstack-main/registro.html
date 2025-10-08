@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro — HuertoHogar</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <header class="topbar">
+    <div class="logo"><h1>🍎 HuertoHogar</h1></div>
+    <nav class="menu">
+      <a href="index.html">HOME</a> |
+      <a href="productos.html">PRODUCTOS</a> |
+      <a href="categorias.html">CATEGORIAS</a> |
+      <a href="nosotros.html">NOSOTROS</a> |
+      <a href="blogs.html">BLOGS</a> |
+      <a href="contacto.html">CONTACTO</a>
+    </nav>
+
+    <div class="carrito">
+      🛒 Carrito
+    </div>
+  </header>
+
+  <main>
+    <div class="formulario-auth" style="max-width:540px">
+      <h2 style="text-align:center; margin-bottom:10px;">Registro de usuario</h2>
+
+      <form id="formRegistro" novalidate>
+  <label>Nombre completo*</label>
+  <input id="nombre" required maxlength="100">
+
+  <label>Correo*</label>
+  <input id="email" type="email" required maxlength="100"
+         pattern="^[A-Za-z0-9._%+-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$">
+
+  <label>Confirmar correo*</label>
+  <input id="emailConfirm" type="email" required maxlength="100">
+
+  <label>Contraseña*</label>
+  <input id="password" type="password" required minlength="4" maxlength="10">
+
+  <label>Confirmar contraseña*</label>
+  <input id="confirmar" type="password" required minlength="4" maxlength="10">
+
+  <button type="submit">Registrar</button>
+</form>
+<p id="erroresRegistro" class="errores"></p>
+
+
+      <p id="erroresRegistro" class="errores" style="text-align:center; color:#c00; margin-top:8px;"></p>
+      <p style="text-align:center; margin-top:8px;">
+        ¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 HuertoHogar | Todos los derechos reservados</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

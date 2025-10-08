@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalle de producto — HuertoHogar</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <header class="topbar">
+    <div class="logo"><a href="index.html" class="brand">🍎 HuertoHogar</a></div>
+
+    <nav class="menu">
+      <a href="index.html">HOME</a> |
+      <a href="productos.html">PRODUCTOS</a> |
+      <a href="categorias.html">CATEGORIAS</a> |
+      <a href="nosotros.html">NOSOTROS</a> |
+      <a href="blogs.html">BLOGS</a> |
+      <a href="contacto.html">CONTACTO</a>
+    </nav>
+
+    <div class="topbar-right">
+      <a href="cart.html" class="cart-link">🛒 Carrito (<span id="cart-count">0</span>)</a>
+      <div id="auth-area"></div>
+    </div>
+  </header>
+
+  <main class="detalle-page" style="max-width:1200px;margin:24px auto;padding:0 20px;">
+    <nav class="breadcrumb" style="margin-bottom:10px;">
+      <a href="productos.html" style="color:#2E8B57;text-decoration:none;">← Volver a productos</a>
+    </nav>
+
+    <section class="detalle-grid" style="display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:start;">
+      <!-- Media -->
+      <div class="detalle-media">
+        <img id="main-img" src="" alt="Producto" style="width:100%;height:420px;object-fit:cover;border:1px solid #ddd;border-radius:8px;">
+        <div id="thumbs" class="thumbs" style="display:flex;gap:10px;margin-top:10px;"></div>
+      </div>
+
+      <!-- Info -->
+      <aside class="detalle-info" style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.06);">
+        <div class="title-price" style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;">
+          <h2 id="p-nombre" style="margin:0;">—</h2>
+          <strong id="p-precio" style="color:#2E8B57;font-size:1.25rem;">—</strong>
+        </div>
+        <p id="p-code" style="margin:.3rem 0 .6rem;color:#666;"></p>
+        <p id="p-desc" style="color:#444;line-height:1.55;margin-bottom:12px;">—</p>
+
+        <label for="qty" style="font-weight:700;color:#2E8B57;">Cantidad</label>
+        <input id="qty" type="number" min="1" value="1" style="width:90px;height:40px;padding:0 10px;border:1px solid #cfd4dc;border-radius:8px;margin-bottom:12px;">
+
+        <div style="display:flex;gap:8px;">
+          <a href="cart.html" style="flex:1;text-align:center;padding:12px;border-radius:10px;background:#2E8B57;color:#fff;text-decoration:none;font-weight:800;">Ir al carrito</a>
+          <a href="productos.html" style="flex:1;text-align:center;padding:12px;border-radius:10px;border:1px solid #e5e7eb;background:#fff;color:#111;text-decoration:none;font-weight:700;">Seguir comprando</a>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 HuertoHogar | Todos los derechos reservados</p>
+  </footer>
+
+  <!-- === 1) Catálogo (3 productos) — va ANTES del script que lo usa === -->
+  <script>
+    // Catálogo (id -> producto)
+    window.PRODUCTS = Object.freeze({
+      "1": {
+        code: "FR001",
+        nombre: "Manzanas Fuji",
+        precio: 1200,
+        unidad: "/ kg",
+        desc: " Manzanas Fuji crujientes y dulces, cultivadas en el Valle del Maule. Perfectas para meriendas saludables o como ingrediente en postres. Estas manzanas son conocidas por su textura firme y su sabor equilibrado entre dulce y ácido.",
+        imagenes: [
+          "imagenes/manzana_fuji.jpg",
+          
+        ]
+      },
+      "2": {
+        code: "FR002",
+        nombre: "Naranjas Valencia",
+        precio: 1000,
+        unidad: "/ kg",
+        desc: "Jugosas y ricas en vitamina C, estas naranjas Valencia son ideales para zumos frescos y refrescantes. Cultivadas en condiciones climáticas óptimas que aseguran su dulzura y jugosidad",
+        imagenes: ["imagenes/naranjas_valencia.jpg"]
+      },
+      "3": {
+        code: "FR003",
+        nombre: "Plátanos Cavendish",
+        precio: 800,
+        unidad: "/ kg",
+        desc: " Plátanos maduros y dulces, perfectos para el desayuno o como snack energético. Estos plátanos son ricos en potasio y vitaminas, ideales para mantener una dieta equilibrada.",
+        imagenes: ["imagenes/Cavendish_Banannas.jpg"]
+      }
+    });
+  </script>
+
+  
+  <script src="script.js"></script>
+
+  <script>
+    (function(){
+      const qs = new URLSearchParams(location.search);
+      const id = qs.get('id');
+      const p = (window.PRODUCTS || {})[id];
+
+      if(!p){
+        document.querySelector('main').innerHTML =
+          '<div style="text-align:center;padding:60px 20px;">' +
+          '<h2>Producto no encontrado</h2><p><a href="productos.html" style="color:#2E8B57;text-decoration:none;">Volver a productos</a></p></div>';
+        return;
+      }
+
+
+      const fmtCLP = n => new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(n);
+
+
+      document.getElementById('p-nombre').textContent = p.nombre;
+      document.getElementById('p-precio').textContent = fmtCLP(p.precio) + ' ' + (p.unidad || '');
+      document.getElementById('p-code').textContent   = 'Código: ' + p.code;
+      document.getElementById('p-desc').textContent   = p.desc;
+
+
+      const main = document.getElementById('main-img');
+      const thumbs = document.getElementById('thumbs');
+      const imgs = p.imagenes && p.imagenes.length ? p.imagenes : ['imagenes/no-image.png'];
+      main.src = imgs[0];
+      thumbs.innerHTML = imgs.map(src =>
+        `<img src="${src}" style="width:72px;height:72px;object-fit:cover;border:2px solid #ddd;border-radius:6px;cursor:pointer;">`
+      ).join('');
+      thumbs.querySelectorAll('img').forEach(img => img.addEventListener('click',()=> main.src = img.src));
+
+      if (typeof renderAuthArea === 'function') renderAuthArea();
+      if (typeof updateCartBadge === 'function') updateCartBadge();
+    })();
+  </script>
+</body>
+</html>

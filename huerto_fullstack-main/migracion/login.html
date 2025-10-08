@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Iniciar sesión - HuertoHogar</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <header class="topbar">
+    <div class="logo"><h1>🍎 HuertoHogar</h1></div>
+       <nav class="menu">
+      <a href="index.html">HOME</a> |
+      <a href="productos.html">PRODUCTOS</a> |
+      <a href="categorias.html">CATEGORIAS</a> |
+      <a href="nosotros.html">NOSOTROS</a> |
+      <a href="blogs.html">BLOGS</a> |
+      <a href="contacto.html">CONTACTO</a>
+    </nav>
+    <div class="topbar-right">
+  <a href="carrito.html" class="cart-link">🛒 Carrito (<span id="cart-count">0</span>)</a>
+  <div id="auth-area"></div>
+</div>
+  </header>
+
+  <main>
+    <div class="formulario-auth">
+      <h2 style="text-align:center; margin-bottom:8px;">Iniciar sesión</h2>
+
+     <form id="formLogin" novalidate>
+  <label>Correo*</label>
+  <input id="login-email" type="email" required maxlength="100"
+         pattern="^[A-Za-z0-9._%+-]+@(duocuc\.cl|profesor\.duocuc\.cl|gmail\.com)$">
+
+  <label>Contraseña*</label>
+  <input id="login-pass" type="password" required minlength="4" maxlength="10">
+
+  <button type="submit">Entrar</button>
+</form>
+<p id="erroresLogin" class="errores"></p>
+
+<p id="erroresRegistro" class="errores"></p>
+
+      <p id="erroresLogin" class="errores" style="text-align:center; color:#c00; margin-top:6px;"></p>
+      <p style="text-align:center; margin-top:8px;">
+        ¿No tienes cuenta? <a href="registro.html">Crea una aquí</a>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 HuertoHogar | Todos los derechos reservados</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

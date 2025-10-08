@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos - HuertoHogar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Barra superior -->
+  <header class="topbar">
+  <div class="logo"><a href="index.html" class="brand">🍎 HuertoHogar</a></div>
+
+  <nav class="menu">
+    <a href="index.html">HOME</a> |
+    <a href="productos.html">PRODUCTOS</a> |
+    <a href="categorias.html">CATEGORIAS</a> |
+    <a href="nosotros.html">NOSOTROS</a> |
+    <a href="blogs.html">BLOGS</a> |
+    <a href="contacto.html">CONTACTO</a>
+  </nav>
+
+  <!-- Derecha: carrito + sesión (IMPORTANTE: #auth-area aquí) -->
+  <div class="topbar-right">
+    <a href="carrito.html" class="cart-link">🛒 Carrito (<span id="cart-count">0</span>)</a>
+    <div id="auth-area"></div>
+  </div>
+</header>
+
+  <main>
+    <section class="productos-lista">
+      <h2>Todos los productos</h2>
+      <div class="galeria">
+
+        <!-- ===== Frutas Frescas ===== -->
+        <div class="producto">
+          <a href="detalle.html?id=1">
+            <img src="imagenes/manzana_fuji.jpg" alt="Manzanas Fuji">
+            <h3>FR001 - Manzanas Fuji</h3>
+          </a>
+          <p class="precio">$1.200 / kg</p>
+          <button class="add-to-cart" data-id="1" data-nombre="Manzanas Fuji" data-precio="1200">Añadir</button>
+        </div>
+
+        <div class="producto">
+          <a href="detalle.html?id=2">
+            <img src="imagenes/naranjas_valencia.jpg" alt="Naranjas Valencia">
+            <h3>FR002 - Naranjas Valencia</h3>
+          </a>
+          <p class="precio">$1.000 / kg</p>
+          <button class="add-to-cart" data-id="2" data-nombre="Naranjas Valencia" data-precio="1000">Añadir</button>
+        </div>
+
+        <div class="producto">
+          <a href="detalle.html?id=3">
+            <img src="imagenes/Cavendish_Banannas.jpg" alt="Plátanos Cavendish">
+            <h3>FR003 - Plátanos Cavendish</h3>
+          </a>
+          <p class="precio">$800 / kg</p>
+          <button class="add-to-cart" data-id="3" data-nombre="Plátanos Cavendish" data-precio="800">Añadir</button>
+        </div>
+
+        <!-- ===== Verduras Orgánicas ===== -->
+        <div class="producto">
+          <a href="detalle.html?id=5">
+            <img src="imagenes/zanahoria.jpg" alt="Zanahorias Orgánicas">
+            <h3>VR001 - Zanahorias Orgánicas</h3>
+          </a>
+          <p class="precio">$900 / kg</p>
+          <button class="add-to-cart" data-id="5" data-nombre="Zanahorias Orgánicas" data-precio="900">Añadir</button>
+        </div>
+
+        <div class="producto">
+          <a href="detalle.html?id=6">
+            <img src="imagenes/espinacas.png" alt="Espinacas Frescas">
+            <h3>VR002 - Espinacas Frescas</h3>
+          </a>
+          <p class="precio">$700 / paquete</p>
+          <button class="add-to-cart" data-id="6" data-nombre="Espinacas Frescas" data-precio="700">Añadir</button>
+        </div>
+
+        <div class="producto">
+          <a href="detalle.html?id=7">
+            <img src="imagenes/pimientos.jpg" alt="Pimientos Tricolores">
+            <h3>VR003 - Pimientos Tricolores</h3>
+          </a>
+          <p class="precio">$1.500 / kg</p>
+          <button class="add-to-cart" data-id="7" data-nombre="Pimientos Tricolores" data-precio="1500">Añadir</button>
+        </div>
+
+  
+
+        <!-- ===== Productos Orgánicos ===== -->
+        <div class="producto">
+          <a href="detalle.html?id=9">
+            <img src="imagenes/miel-organica.jpg" alt="Miel Orgánica">
+            <h3>PO001 - Miel Orgánica</h3>
+          </a>
+          <p class="precio">$5.000 / frasco</p>
+          <button class="add-to-cart" data-id="9" data-nombre="Miel Orgánica" data-precio="5.000">Añadir</button>
+        </div>
+
+        <div class="producto">
+          <a href="detalle.html?id=10">
+            <img src="imagenes/quinua-organica.jpg" alt="Quinua Orgánica">
+            <h3>PO003 - Quinua Orgánica</h3>
+          </a>
+          <p class="precio">$2.100 / paquete</p>
+          <button class="add-to-cart" data-id="10" data-nombre="Quinua Orgánica" data-precio="2.100">Añadir</button>
+        </div>
+
+      
+       
+
+        <!-- ===== Productos Lácteos ===== -->
+        <div class="producto">
+          <a href="detalle.html?id=13">
+            <img src="imagenes/leche-entera.jpg" alt="Leche Entera">
+            <h3>PL001 - Leche Entera</h3>
+          </a>
+          <p class="precio">$1.250 / litro</p>
+          <button class="add-to-cart" data-id="13" data-nombre="Leche Entera" data-precio="1.250">Añadir</button>
+        </div>
+
+        
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 HuertoHogar | Todos los derechos reservados</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

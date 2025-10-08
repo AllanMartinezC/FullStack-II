@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carrito — HuertoHogar</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <header class="topbar">
+    <div class="logo"><a href="index.html" class="brand">🍎 HuertoHogar</a></div>
+
+    <nav class="menu">
+      <a href="index.html">HOME</a> |
+      <a href="productos.html">PRODUCTOS</a> |
+      <a href="categorias.html">CATEGORIAS</a> |
+      <a href="nosotros.html">NOSOTROS</a> |
+      <a href="blogs.html">BLOGS</a> |
+      <a href="contacto.html">CONTACTO</a>
+    </nav>
+
+    <!-- Derecha: enlace al carrito (esta misma página) + sesión -->
+    <div class="topbar-right">
+      <a href="carrito.html" class="cart-link">🛒 Carrito (<span id="cart-count">3</span>)</a>
+      <div id="auth-area"><!-- se pinta con tu script si lo cargas --></div>
+    </div>
+  </header>
+
+  <main class="cart-page" style="max-width:1200px;margin:30px auto;padding:0 20px;text-align:left;">
+    <h2 style="margin-bottom:16px;">Carrito de compras</h2>
+
+    <div class="cart-wrapper" style="display:grid;grid-template-columns:2fr 1fr;gap:20px;">
+      <!-- Lista de productos -->
+      <section class="cart-list" id="cart-list" style="display:flex;flex-direction:column;gap:12px;">
+
+        <!-- Item 1 -->
+        <article class="cart-item" style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px;display:grid;grid-template-columns:92px 1fr auto;gap:14px;align-items:center;">
+          <img src="imagenes/manzana_fuji.jpg" alt="Manzanas Fuji" style="width:92px;height:92px;object-fit:cover;border-radius:8px;">
+          <div>
+            <h4 style="margin:0 0 6px;">Manzanas Fuji</h4>
+            <div class="price" style="color:#2E8B57;font-weight:700;">$1.990 / kg</div>
+            <small>Código: FR001</small>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="qty" style="display:flex;align-items:center;gap:8px;">
+              <label for="qty1">Cant.</label>
+              <input id="qty1" type="number" value="2" min="1" style="width:70px;height:36px;padding:0 8px;border:1px solid #cfd4dc;border-radius:8px;" disabled>
+            </div>
+            <div class="line-total" style="min-width:110px;text-align:right;font-weight:700;color:#2E8B57;">$3.980</div>
+            <button class="remove" style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:8px 10px;cursor:not-allowed;" disabled>✕</button>
+          </div>
+        </article>
+
+        <!-- Item 2 -->
+        <article class="cart-item" style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px;display:grid;grid-template-columns:92px 1fr auto;gap:14px;align-items:center;">
+          <img src="imagenes/naranjas_valencia.jpg" alt="Naranjas Valencia" style="width:92px;height:92px;object-fit:cover;border-radius:8px;">
+          <div>
+            <h4 style="margin:0 0 6px;">Naranjas Valencia</h4>
+            <div class="price" style="color:#2E8B57;font-weight:700;">$2.490 / kg</div>
+            <small>Código: FR002</small>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="qty" style="display:flex;align-items:center;gap:8px;">
+              <label for="qty2">Cant.</label>
+              <input id="qty2" type="number" value="1" min="1" style="width:70px;height:36px;padding:0 8px;border:1px solid #cfd4dc;border-radius:8px;" disabled>
+            </div>
+            <div class="line-total" style="min-width:110px;text-align:right;font-weight:700;color:#2E8B57;">$2.490</div>
+            <button class="remove" style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:8px 10px;cursor:not-allowed;" disabled>✕</button>
+          </div>
+        </article>
+
+        <!-- Item 3 -->
+        <article class="cart-item" style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px;display:grid;grid-template-columns:92px 1fr auto;gap:14px;align-items:center;">
+          <img src="imagenes/leche-entera.jpg" alt="Leche Entera" style="width:92px;height:92px;object-fit:cover;border-radius:8px;">
+          <div>
+            <h4 style="margin:0 0 6px;">Leche Entera</h4>
+            <div class="price" style="color:#2E8B57;font-weight:700;">$1.200 / und</div>
+            <small>Código: PL001</small>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="qty" style="display:flex;align-items:center;gap:8px;">
+              <label for="qty3">Cant.</label>
+              <input id="qty3" type="number" value="2" min="1" style="width:70px;height:36px;padding:0 8px;border:1px solid #cfd4dc;border-radius:8px;" disabled>
+            </div>
+            <div class="line-total" style="min-width:110px;text-align:right;font-weight:700;color:#2E8B57;">$2.400</div>
+            <button class="remove" style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:8px 10px;cursor:not-allowed;" disabled>✕</button>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Resumen -->
+      <aside class="cart-summary" style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px;height:max-content;box-shadow:0 6px 18px rgba(0,0,0,.05);">
+        <h3 style="margin-top:0;">Resumen</h3>
+        <dl style="margin:10px 0;">
+          <div style="display:flex;justify-content:space-between;margin:6px 0;">
+            <dt>Subtotal</dt><dd>$8.870</dd>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin:6px 0;">
+            <dt>Envío</dt><dd>$0</dd>
+          </div>
+          <div class="total" style="display:flex;justify-content:space-between;margin:10px 0;font-weight:800;font-size:1.1rem;">
+            <dt>Total</dt><dd>$8.870</dd>
+          </div>
+        </dl>
+
+        <!-- Botones mock (sin acciones) -->
+        <button type="button" style="width:100%;padding:12px;border:none;border-radius:10px;font-weight:800;background:#2E8B57;color:#fff;cursor:not-allowed;" disabled>
+          Proceder al pago
+        </button>
+        <button type="button" style="width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px;font-weight:700;background:#fff;color:#111;margin-top:8px;cursor:not-allowed;" disabled>
+          Vaciar carrito
+        </button>
+
+        <a href="productos.html" style="display:inline-block;margin-top:10px;color:#2E8B57;text-decoration:none;font-weight:700;">← Seguir comprando</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 HuertoHogar | Todos los derechos reservados</p>
+  </footer>
+
+</body>
+</html>

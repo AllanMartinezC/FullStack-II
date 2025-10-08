@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HuertoHogar — Verduras Orgánicas</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <header class="topbar">
+  <div class="logo"><a href="index.html" class="brand">🍎 HuertoHogar</a></div>
+
+  <nav class="menu">
+    <a href="index.html">HOME</a> |
+    <a href="productos.html">PRODUCTOS</a> |
+    <a href="categorias.html">CATEGORIAS</a> |
+    <a href="nosotros.html">NOSOTROS</a> |
+    <a href="blogs.html">BLOGS</a> |
+    <a href="contacto.html">CONTACTO</a>
+  </nav>
+
+  <!-- Derecha: carrito + sesión (IMPORTANTE: #auth-area aquí) -->
+  <div class="topbar-right">
+    <a href="carrito.html" class="cart-link">🛒 Carrito (<span id="cart-count">0</span>)</a>
+    <div id="auth-area"></div>
+  </div>
+</header>
+  <!-- Sub-barra de login -->
+  <div class="login-bar">
+    <a href="login.html">Iniciar Sesión</a> | 
+    <a href="registro.html">Registrarse</a>
+  </div>
+
+  <main>
+    <!-- ====== DETALLE DE CATEGORÍA ====== -->
+    <section class="detalle-categoria">
+      <h2>Verduras Orgánicas</h2>
+      <h4 class="categoria-descripcion">
+        Descubre nuestra gama de verduras orgánicas, cultivadas sin el uso de pesticidas ni químicos,
+        garantizando un sabor auténtico y natural. Cada verdura es seleccionada por su calidad y valor
+        nutricional, ofreciendo una excelente fuente de vitaminas, minerales y fibra. Ideales para ensaladas,
+        guisos y platos saludables, nuestras verduras orgánicas promueven una alimentación consciente
+        y sostenible.
+      </h4>
+
+      <div class="galeria">
+        <div class="producto">
+          <img src="imagenes/zanahoria.jpg" alt="Zanahorias Orgánicas">
+          <h5>VR001 - Zanahorias Orgánicas</h5>
+          <p class="atributo">Precio Kilo</p>
+          <p class="precio">$900</p>
+          <p class= "Stock"> Stock 100 KL</p>
+        </div>
+        <div class="producto">
+          <img src="imagenes/espinacas.png" alt="Espinacas Frescas Orgánicas">
+          <h5>VR002 - Espinacas Frescas</h5>
+          <p class="atributo">Precio Bolsa</p>
+          <p class="precio">$700</p>
+          <p class= "Stock"> Stock 80 bolsas</p>
+        </div>
+        <div class="producto">
+          <img src="imagenes/pimientos.jpg" alt="Pimientos Tricolores Orgánicos">
+          <h5>VR003 - Pimientos Tricolores</h5>
+          <p class="atributo">Precio Kilo</p>
+          <p class="precio">$1500</p>
+          <p class= "Stock"> Stock 120 KL</p>
+        </div>
+      </div>
+    </section>
+    <!-- ====== /DETALLE DE CATEGORÍA ====== -->
+  </main>
+
+  <footer>
+    <p>© 2025 HuertoHogar | Todos los derechos reservados</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

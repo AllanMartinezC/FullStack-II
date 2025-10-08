@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HuertoHogar — Categorías</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <header class="topbar">
+  <div class="logo"><a href="index.html" class="brand">🍎 HuertoHogar</a></div>
+
+  <nav class="menu">
+    <a href="index.html">HOME</a> |
+    <a href="productos.html">PRODUCTOS</a> |
+    <a href="categorias.html">CATEGORIAS</a> |
+    <a href="nosotros.html">NOSOTROS</a> |
+    <a href="blogs.html">BLOGS</a> |
+    <a href="contacto.html">CONTACTO</a>
+  </nav>
+
+  <!-- Derecha: carrito + sesión (IMPORTANTE: #auth-area aquí) -->
+  <div class="topbar-right">
+    <a href="carrito.html" class="cart-link">🛒 Carrito (<span id="cart-count">0</span>)</a>
+    <div id="auth-area"></div>
+  </div>
+</header>
+
+  <!-- Sub-barra de login -->
+  <div class="login-bar">
+    <a href="login.html">Iniciar Sesión</a> | 
+    <a href="registro.html">Registrarse</a>
+  </div>
+
+  <main>
+    <!-- ====== CATEGORÍAS ====== -->
+    <section class="categorias-section">
+      <h2 class="categorias-heading">Categorías y productos de HuertoHogar</h2>
+
+      <div class="categorias-galeria">
+        <!-- Categoría 1 -->
+        <article class="categoria-card">
+          <img src="imagenes/frutas-y-verduras.jpg" alt="Frutas Frescas" />
+          <h3>Frutas Frescas</h3>
+          <p>Manzanas, naranjas, plátanos, uvas y más, directamente del campo a tu mesa.</p>
+          <a href="productos-frutas.html" class="btn-outline">Ver productos</a>
+        </article>
+
+        <!-- Categoría 2 -->
+        <article class="categoria-card">
+          <img src="imagenes/verduras-orgánicas.webp" alt="Verduras Orgánicas" />
+          <h3>Verduras Orgánicas</h3>
+          <p>Zanahorias, espinacas, pimientos y hortalizas cultivadas sin químicos.</p>
+          <a href="productos-verduras.html" class="btn-outline">Ver productos</a>
+        </article>
+
+        <!-- Categoría 3 -->
+        <article class="categoria-card">
+          <img src="imagenes/productos organicos.jpg" alt="Productos Orgánicos" />
+          <h3>Productos Orgánicos</h3>
+          <p>Miel, quinua, semillas, cereales  y más alimentos saludables con certificación orgánica.</p>
+          <a href="productos-organicos.html" class="btn-outline">Ver productos</a>
+        </article>
+
+        <!-- Categoría 4 -->
+        <article class="categoria-card">
+          <img src="imagenes/Producción de lácteos).jpg" alt="Productos Lácteos" />
+          <h3>Productos Lácteos</h3>
+          <p>Leche, quesos y yogures frescos de productores locales.</p>
+          <a href="productos-lacteos.html" class="btn-outline">Ver productos</a>
+        </article>
+      </div>
+    </section>
+    <!-- ====== /CATEGORÍAS ====== -->
+  </main>
+
+  <footer>
+    <p>© 2025 HuertoHogar | Todos los derechos reservados</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

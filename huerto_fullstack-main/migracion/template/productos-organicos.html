@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HuertoHogar — Productos Orgánicos</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <header class="topbar">
+  <div class="logo"><a href="index.html" class="brand">🍎 HuertoHogar</a></div>
+
+  <nav class="menu">
+    <a href="index.html">HOME</a> |
+    <a href="productos.html">PRODUCTOS</a> |
+    <a href="categorias.html">CATEGORIAS</a> |
+    <a href="nosotros.html">NOSOTROS</a> |
+    <a href="blogs.html">BLOGS</a> |
+    <a href="contacto.html">CONTACTO</a>
+  </nav>
+
+  <!-- Derecha: carrito + sesión (IMPORTANTE: #auth-area aquí) -->
+  <div class="topbar-right">
+    <a href="carrito.html" class="cart-link">🛒 Carrito (<span id="cart-count">0</span>)</a>
+    <div id="auth-area"></div>
+  </div>
+</header>
+
+  <!-- Sub-barra de login -->
+  <div class="login-bar">
+    <a href="login.html">Iniciar Sesión</a> | 
+    <a href="registro.html">Registrarse</a>
+  </div>
+
+  <main>
+    <!-- ====== DETALLE DE CATEGORÍA ====== -->
+    <section class="detalle-categoria">
+      <h2>Productos Orgánicos</h2>
+      <h4 class="categoria-descripcion">
+        Nuestros productos orgánicos están elaborados con ingredientes naturales y procesados de manera
+        responsable para mantener sus beneficios saludables. Desde aceites y miel hasta granos y semillas,
+        ofrecemos una selección que apoya un estilo de vida saludable y respetuoso con el medio ambiente.
+        Estos productos son perfectos para quienes buscan opciones alimenticias que aporten bienestar sin
+        comprometer el sabor ni la calidad.
+      </h4>
+
+      <div class="galeria">
+        <div class="producto">
+          <img src="imagenes/miel-organica.jpg" alt="Miel Orgánica">
+          <h5>PO001 - Miel Orgánica</h5>
+          <p class="atributo">Precio Frasco</p>
+          <p class="precio">$5.000</p>
+          <p class= "Stock"> Stock 50 frascos</p>
+        </div>
+        <div class="producto">
+          <img src="imagenes/quinua-organica.jpg" alt="Quinua Orgánica">
+          <h5>PO003 - Quinua Orgánica</h5>
+          <p class="atributo">Precio Kilo</p>
+          <p class="precio">$2.100</p>
+          <p class= "Stock"> Stock 80 KL</p>
+        </div>
+        <div class="producto">
+          <img src="imagenes/aceite_oliva.jpg" alt="Aceite de Oliva Orgánico">
+          <h5>PO004 - Aceite de Oliva Orgánico</h5>
+          <p class="atributo">Precio Litro</p>
+          <p class="precio">$7.990</p>
+          <p class= "Stock"> Stock 58 Lt</p>
+        </div>
+        <div class="producto">
+          <img src="imagenes/semilla_chia.webp" alt="Semillas de Chía Orgánicas">
+          <h5>PO005 - Semillas de Chía</h5>
+          <p class="atributo">Precio Kilo</p>
+          <p class="precio">$2.990</p>
+          <p class= "Stock"> Stock 40 KL</p>
+        </div>
+      </div>
+    </section>
+    <!-- ====== /DETALLE DE CATEGORÍA ====== -->
+  </main>
+
+  <footer>
+    <p>© 2025 HuertoHogar | Todos los derechos reservados</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

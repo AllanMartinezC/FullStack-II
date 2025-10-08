@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HuertoHogar — Contacto</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Barra superior -->
+<header class="topbar">
+  <div class="logo"><a href="index.html" class="brand">🍎 HuertoHogar</a></div>
+
+  <nav class="menu">
+    <a href="index.html">HOME</a> |
+    <a href="productos.html">PRODUCTOS</a> |
+    <a href="categorias.html">CATEGORIAS</a> |
+    <a href="nosotros.html">NOSOTROS</a> |
+    <a href="blogs.html">BLOGS</a> |
+    <a href="contacto.html">CONTACTO</a>
+  </nav>
+
+  <!-- Derecha: carrito + sesión (IMPORTANTE: #auth-area aquí) -->
+  <div class="topbar-right">
+    <a href="carrito.html" class="cart-link">🛒 Carrito (<span id="cart-count">0</span>)</a>
+    <div id="auth-area"></div>
+  </div>
+</header>
+
+  <!-- Sub-barra de login -->
+  <div class="login-bar">
+    <a href="login.html">Iniciar Sesión</a> |
+    <a href="registro.html">Registrarse</a>
+  </div>
+
+  <main>
+  <!-- Encabezado -->
+  <section class="contacto-header">
+    
+    <div class="logo"><a href="index.html" class="brand">🍎 HuertoHogar</a></div>
+    <h2>HuertoHogar</h2>
+  </section>
+
+  <!-- Formulario -->
+  <section class="formulario-contacto">
+    <h3>FORMULARIO DE CONTACTO</h3>
+
+    <form id="contact-form" novalidate>
+      <!-- Nombre -->
+      <label for="nombre">Nombre completo <span class="req">*</span></label>
+      <input type="text" id="nombre" name="nombre" required maxlength="100" placeholder="Ej: Ana Pérez">
+      <small>Requerido — Máx. 100 caracteres.</small>
+
+      <!-- Correo -->
+      <label for="correo">Correo <span class="req">*</span></label>
+      <input type="email" id="correo" name="correo" required maxlength="100"
+             placeholder="usuario@duoc.cl / @profesor.duoc.cl / @gmail.com"
+             pattern="^[A-Za-z0-9._%+-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$">
+      <small>Acepta únicamente @duoc.cl, @profesor.duoc.cl o @gmail.com — Máx. 100 caracteres.</small>
+
+      <!-- Comentario -->
+      <label for="comentario">Comentario <span class="req">*</span></label>
+      <textarea id="comentario" name="comentario" required maxlength="500" placeholder="Escribe tu mensaje…"></textarea>
+      <div class="hint-row">
+        <small>Requerido — Máx. 500 caracteres.</small>
+        <small id="contador-comentario">0 / 500</small>
+      </div>
+
+      <!-- Botón -->
+      <button type="submit">ENVIAR MENSAJE</button>
+    </form>
+  </section>
+</main>
+
+
+  <footer>
+    <p>© 2025 HuertoHogar | Todos los derechos reservados</p>
+  </footer>
+
+  <!-- JS mínimo para feedback de validación y contador -->
+  <script>
+    // Contador de caracteres para comentario
+    const txt = document.getElementById('comentario');
+    const counter = document.getElementById('contador-comentario');
+    if (txt && counter) {
+      const update = () => counter.textContent = txt.value.length + ' / 500';
+      txt.addEventListener('input', update);
+      update();
+    }
+
+    // Validación suave al enviar
+    document.getElementById('contact-form').addEventListener('submit', function(e){
+      const nombre = document.getElementById('nombre');
+      const correo = document.getElementById('correo');
+      const emailOK = /^[A-Za-z0-9._%+-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/.test(correo.value);
+
+      // Mensajes nativos + chequeo de dominio
+      if (!this.checkValidity() || !emailOK) {
+        e.preventDefault();
+        if (!emailOK) {
+          correo.setCustomValidity('El correo debe pertenecer a duoc.cl, profesor.duoc.cl o gmail.com');
+        } else {
+          correo.setCustomValidity('');
+        }
+        this.reportValidity();
+      } else {
+        correo.setCustomValidity('');
+ 
+      }
+    });
+  </script>
+  <script src="script.js"></script>
+
+</body>
+</html>

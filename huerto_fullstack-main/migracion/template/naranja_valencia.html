@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FR002 - Naranjas Valencia | HuertoHogar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo"><a href="index.html" class="brand">🍊 HuertoHogar</a></div>
+    <nav class="menu">
+      <a href="index.html">HOME</a> |
+      <a href="productos.html">PRODUCTOS</a> |
+      <a href="categorias.html">CATEGORIAS</a> |
+      <a href="nosotros.html">NOSOTROS</a> |
+      <a href="blogs.html">BLOGS</a> |
+      <a href="contacto.html">CONTACTO</a>
+    </nav>
+    <div class="topbar-right">
+      <a href="carrito.html" class="cart-link">🛒 Carrito (<span id="cart-count">0</span>)</a>
+      <div id="auth-area"></div>
+    </div>
+  </header>
+
+  <main class="detalle-producto" id="detalle">
+    <div style="display:flex;gap:28px;flex-wrap:wrap;justify-content:center;">
+      <div style="max-width:420px;">
+        <img src="imagenes/naranjas_valencia.jpg" alt="Naranjas Valencia" style="width:100%;border-radius:10px;object-fit:cover;">
+      </div>
+      <div style="max-width:520px;text-align:left;">
+        <h2 style="color:#2E8B57;margin-bottom:8px;">FR002 - Naranjas Valencia</h2>
+        <p style="margin-bottom:12px;line-height:1.5;">
+          Jugosas y ricas en vitamina C, estas naranjas Valencia son ideales para zumos frescos y refrescantes. Cultivadas en condiciones óptimas que aseguran dulzura y jugosidad.
+        </p>
+        <p class="precio" style="font-size:18px;margin-bottom:6px;">Precio: $1.000 CLP / kilo</p>
+        <p style="margin-bottom:12px;color:#555;">Stock: 200 kilos</p>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <button id="add-to-cart" data-product-id="naranja" class="btn">Añadir al carrito</button>
+          <a href="productos.html" class="btn-outline">Volver a productos</a>
+        </div>
+        <p id="cart-msg" style="margin-top:10px;color:#2E8B57;font-weight:700;"></p>
+      </div>
+    </div>
+  </main>
+
+  <footer><p>© 2025 HuertoHogar | Todos los derechos reservados</p></footer>
+
+  <script src="script.js"></script>
+  <script src="cart.js"></script>
+</body>
+</html>
