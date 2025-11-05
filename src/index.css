@@ -1,0 +1,39 @@
+/* Estilos para las imágenes de los productos */
+.producto img {
+    /* CLAVE 1: Ancho al 100% del contenedor */
+    width: 100%; 
+    
+    /* CLAVE 2: Altura fija para todas las imágenes (ej. 200px) */
+    height: 200px; 
+    
+    /* CLAVE 3: Recorta la imagen para llenar el espacio, evitando la distorsión */
+    object-fit: cover; 
+    
+    /* Usa una transición para que el zoom de hover sea suave */
+    transition: transform 0.3s ease-in-out; 
+    
+    /* Otros estilos (opcional) */
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: none; /* Asegura que no haya borde en la foto */
+}
+
+.galeria .producto img:hover {
+  transform: scale(1.05);     /* zoom suave al pasar el mouse */
+}
+
+
+.nav-link {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.nav-link:hover {
+  color: #ffcc00 !important;
+  text-decoration: underline;
+}
+
+.nav-link.active {
+  color: #ffcc00 !important;
+  text-decoration: none !important;
+}
