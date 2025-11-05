@@ -750,8 +750,10 @@ footer {
   padding: 25px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start; /* ✅ apila los elementos arriba */
+  align-items: flex-start;     /* ✅ los alinea a la izquierda */
 }
+
 
 .blog-title {
   color: #4aa056;
@@ -768,24 +770,24 @@ footer {
 
 /* ======== Botón ======== */
 .btn-outline {
-    background-color: #5dbb63;
-    display: inline-block;
-    padding: 5px 10px;
-    border: 2px solid #5dbb63;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-    align-self: flex-start;
-
-   
-    margin-top: -40px; 
+  background-color: #5dbb63;
+  display: inline-block;
+  padding: 8px 16px;
+  border: 2px solid #5dbb63;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  align-self: center; /* puedes usar center si quieres centrarlo */
+  margin-top: 10px;       /* ✅ margen positivo, no negativo */
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .btn-outline:hover {
-  background-color: #5dbb63;
-  color: white;
+  background-color: white;
+  color: #5dbb63;
 }
+
 
 /* ======== 🔹 RESPONSIVIDAD 🔹 ======== */
 
@@ -876,6 +878,62 @@ footer {
     min-height: 160px;
   }
 }
+
+/* ======== 📱 CORRECCIÓN FINAL RESPONSIVA ======== */
+@media (max-width: 768px) {
+  .blog-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .blog-media {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .blog-media img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  .blog-content {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 15px !important;
+    width: 95% !important;
+  }
+
+  .blog-title {
+    font-size: 1.2rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .blog-excerpt {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 15px !important;
+  }
+
+  .btn-outline {
+    align-self: center !important;
+    width: auto !important;
+    max-width: 200px !important;
+    padding: 10px 20px !important;
+    font-size: 1rem !important;
+    border-radius: 10px !important;
+    margin-top: 10px !important;
+    position: static !important;
+  }
+}
+
+
+
 
 /* --- Estilos para la Sección de LOGIN y REGISTRO --- */
 
@@ -1816,103 +1874,117 @@ footer {
 
 
 /* ==================================== */
-/* === Galería de Categorías === */
+/* === Galería de Categorías (mejorada) === */
 /* ==================================== */
 
 .categorias-galeria {
-    display: flex; 
-    flex-wrap: nowrap; /* Mantener en una sola fila */
-    justify-content: flex-start; 
-    gap: 20px; 
-    margin-top: 24px; 
-    overflow-x: auto; 
+    display: flex;
+    flex-wrap: wrap; /* ✅ Permite que las tarjetas bajen a otra fila */
+    justify-content: center;
+    gap: 20px;
+    margin-top: 24px;
     padding-bottom: 10px;
-
-    /* Ajustes para suavizar el scroll en dispositivos táctiles */
-    -webkit-overflow-scrolling: touch; 
-}
-
-/* Esconder la barra de desplazamiento en la mayoría de navegadores */
-.categorias-galeria::-webkit-scrollbar {
-    display: none;
-}
-.categorias-galeria {
-    -ms-overflow-style: none; /* IE 10+ */
-    scrollbar-width: none; /* Firefox */
 }
 
 .categoria-card {
-    
-    flex-shrink: 0; 
-    width: 300px; 
-    height: 350px; 
-    background-color: #fff; 
+    width: 280px;
+    min-height: 350px;
+    background-color: #fff;
     border-radius: 10px;
+    border: 2px solid #8B4513;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    
-    /* === CAMBIO A AGREGAR A CONTINUACIÓN === */
-    border: 2px solid #8B4513; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px;
+    padding-bottom: 25px; 
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .categoria-card:hover {
     transform: translateY(-5px);
-    
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .categoria-card img {
-    width: 100%; 
-    padding: 15px; 
-    height: 170px; 
-    object-fit: cover; 
-    border-radius: 0; 
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 6px;
     margin-bottom: 10px;
-    object-position: center center; 
-    
-    /* 🔑 SOLUCIÓN: Incluir padding dentro del 100% del ancho */
-    box-sizing: border-box; 
 }
 
-
-
-.categoria-card {
-    box-sizing: border-box;
-    border: 2px solid #8B4513;
-    position: relative; /* Para que el botón pueda posicionarse respecto a la tarjeta */
-    padding: 15px; /* Ajusta según tu diseño */
+.categoria-card h3 {
+    text-align: center;
+    font-size: 1.3rem;
+    margin: 10px 0 5px;
+    color: #333;
 }
 
-/* ===== RESPONSIVIDAD ===== */
+.categoria-card p {
+    text-align: center;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* ===== Botón dentro de la tarjeta ===== */
+.categoria-card .btn-outline {
+    background-color: #5dbb63;
+    color: #fff;
+    border: 2px solid #5dbb63;
+    border-radius: 8px;
+    padding: 8px 14px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-top: auto; /* ✅ empuja hacia abajo */
+}
+
+.categoria-card .btn-outline:hover {
+    background-color: white;
+    color: #5dbb63;
+}
+
+/* ===== Responsividad ===== */
+
+/* Tablets */
 @media (max-width: 900px) {
-    .categoria-card {
-        width: 250px;
-        height: 320px;
+    .categorias-galeria {
+        flex-wrap: wrap;
+        justify-content: center;
     }
+
+    .categoria-card {
+        width: 240px;
+        min-height: 320px;
+    }
+
     .categoria-card img {
         height: 150px;
     }
 }
 
+/* Celulares */
 @media (max-width: 600px) {
     .categorias-galeria {
-        width: 100%;
-        padding: 0 15px 10px 15px; 
-        margin-top: 15px; 
-        gap: 15px;
+        flex-direction: column; /* ✅ Apila las tarjetas */
+        align-items: center;
+        overflow-x: visible; /* ✅ evita que se corte nada */
     }
-    
+
     .categoria-card {
-        width: 200px; 
-        height: 280px; 
+        width: 90%;
+        max-width: 320px;
+        height: auto;
     }
 
     .categoria-card img {
-        height: 130px; 
+        height: 160px;
     }
 }
+
 
 /* ===== Estilos de Categoría Interna ===== */
 .categoria-card > a {

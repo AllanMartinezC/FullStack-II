@@ -41,31 +41,31 @@ export const Categorias = () => {
 
                     {}
                     <div className="categorias-galeria">
-                        {categorias.map(cat => (
-                            <article key={cat.name} className="categoria-card">
-                                <Link to={`/productos/${toSlug(cat.name)}`}>
-                                    <img
-                                        src={cat.image ?? "/imagenes/placeholder.png"} 
-                                        alt={cat.name}
-                                      
-                                        onError={(e) => {
-                                            (e.currentTarget as HTMLImageElement).src = "/imagenes/placeholder.png";
-                                        }}
-                                    />
-                                    <h3>
-                                        {cat.name}
-                                    </h3>
-                                    <p>
-                                        {cat.count} producto{cat.count !== 1 ? "s" : ""}
-                                    </p>
-                                    <div style={{ display: "flex", justifyContent: "center" }}>
-                                        {}
-                                        <span className="btn-outline">Ver productos</span>
-                                    </div>
-                                </Link>
-                            </article>
-                        ))}
-                    </div>
+  {categorias.map(cat => (
+    <article key={cat.name} className="categoria-card">
+      {/* 🔹 El enlace principal solo envuelve la imagen, el título y el texto */}
+      <Link to={`/productos/${toSlug(cat.name)}`} className="categoria-link">
+        <img
+          src={cat.image ?? "/imagenes/placeholder.png"} 
+          alt={cat.name}
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).src = "/imagenes/placeholder.png";
+          }}
+        />
+        <h3>{cat.name}</h3>
+        <p>{cat.count} producto{cat.count !== 1 ? "s" : ""}</p>
+      </Link>
+
+      {/* 🔹 Botón fuera del link principal */}
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
+        <Link to={`/productos/${toSlug(cat.name)}`} className="btn-outline">
+          Ver productos
+        </Link>
+      </div>
+    </article>
+  ))}
+</div>
+
                 </section>
             </main>
             
