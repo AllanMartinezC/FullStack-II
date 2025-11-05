@@ -2,17 +2,17 @@
 .hh-loop-slider {
   position: relative;
   width: 100%;
-  max-width: 1200px;         /* opcional, encaja con tu .productos-destacados */
+  max-width: 1200px;         
   margin: 0 auto;
-  overflow: hidden;          /* clave para ocultar lo que sale de la pista */
+  overflow: hidden;          
   padding: 10px 0;
 }
 
 /* pista con animación infinita */
 .hh-loop-track {
   --gap: 16px;
-  --item-width: 180px;       /* ancho de cada tarjeta */
-  --speed: 35s;              /* ajusta velocidad (menor = más rápido) */
+  --item-width: 180px;       
+  --speed: 35s;              
 
   display: flex !important;
   flex-wrap: nowrap !important;
@@ -33,7 +33,7 @@
 .hh-loop-item {
   flex: 0 0 auto;
   width: var(--item-width);
-  border: 2px solid #8B4513;   /* borde café */
+  border: 2px solid #8B4513;   
   border-radius: 12px;
   padding: 8px;
   text-align: center;
@@ -53,7 +53,7 @@
 @keyframes hh-scroll {
   from { transform: translateX(0); }
   to   { transform: translateX(calc(-1 * (var(--item-width) + var(--gap)) * 12)); }
-  /* 12 = cantidad que muestras en items (ajústalo si cambias slice) */
+  
 }
 
 /* máscara de desvanecimiento en bordes (opcional, bonito) */

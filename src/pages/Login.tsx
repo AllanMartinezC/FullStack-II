@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// Se asume que el layout principal renderiza el Footer.
+
 import { useAuth } from "../context/AuthContext";
 
 // Expresión regular para validar correos permitidos
@@ -64,11 +64,11 @@ export default function Login() {
   };
 
   return (
-    // 🛑 CLAVE 1: Usamos 'page-container' para el patrón Sticky Footer
+    
     <div className="page-container">
-      {/* El Header/Navbar se renderiza fuera de este componente o a nivel superior */}
+      {}
 
-      {/* 🛑 CLAVE 2: Usamos 'auth-main-content' en <main> para centrar el formulario */}
+      {}
       <main className="auth-main-content">
         
         {/* La tarjeta blanca del formulario */}
@@ -114,8 +114,7 @@ export default function Login() {
               onChange={(e) => setPass(e.target.value)}
             />
 
-            {/* 🛑 AJUSTE: Quitamos 'btn-primary' y dependemos del estilo del selector CSS 
-               .auth-card button[type="submit"] que ya tienes definido. */}
+            {}
             <button type="submit">Entrar</button>
           </form>
 
@@ -132,8 +131,7 @@ export default function Login() {
         </div>
       </main>
       
-      {/* El Footer se renderiza fuera de este componente o a nivel superior 
-         para que el Sticky Footer funcione correctamente en el div.page-container */}
+      {}
     </div>
   );
 }

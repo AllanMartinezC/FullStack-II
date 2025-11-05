@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import { Footer } from '../components/Footer'; // 🛑 ELIMINADO: Se renderiza globalmente en App.tsx
 
-// Regex para la validación de dominios
+
+
 const EMAIL_DOMAIN_RE = /^[A-Za-z0-9._%+-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/;
 
 export const Contacto = () => {
@@ -16,7 +16,7 @@ export const Contacto = () => {
   useEffect(() => {
     document.title = 'HuertoHogar — Contacto';
 
-    // Asegurarse de que las funciones globales de carrito y auth se ejecuten si existen
+    
     if (typeof window !== 'undefined' && typeof (window as any).renderAuthArea === 'function') {
       (window as any).renderAuthArea();
     }
@@ -77,7 +77,7 @@ export const Contacto = () => {
 
   return (
     <div>
-      {/* 🛑 ELEMENTOS DE NAV BAR DUPLICADOS ELIMINADOS */}
+      {}
       
       <main>
         
@@ -161,7 +161,7 @@ export const Contacto = () => {
           </form>
         </section>
 
-        {/* 🛑 ELIMINADAS LAS ETIQUETAS FOOTER DUPLICADAS */}
+        {}
       </main>
 
     </div>

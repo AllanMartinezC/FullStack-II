@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// Asegúrate de importar el Layout o Header/Footer si los necesitas globalmente
+
 import { useCart } from '../context/CartContext';
 
-// Función de formato (ajustada para TypeScript si es necesario)
+
 const formatPrice = (price:number) => {
-    // Asumiendo que price es un número. Adaptar si usas TypeScript: (price: number): string =>
+    
     return `$${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}`;
 };
 
@@ -90,7 +90,7 @@ export const Carrito = () => {
           )}
         </section>
 
-        {/* Columna del Resumen (SE MANTIENE VISIBLE) */}
+        {/* Columna del Resumen  */}
         <aside className="cart-summary">
           <h3>Resumen</h3>
           

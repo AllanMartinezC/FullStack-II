@@ -9,7 +9,7 @@ export const ProductDetail = () => {
     const product = productsData.find(p => p.id === Number(id));
     const { add } = useCart(); 
 
-    // Tipado si usas TypeScript: const [quantity, setQuantity] = useState<number>(1);
+    
     const [quantity, setQuantity] = useState(1); 
     
     const handleAddToCart = () => {
@@ -31,7 +31,7 @@ export const ProductDetail = () => {
     const decrement = () => setQuantity(prev => Math.max(1, prev - 1));
 
     if (!product) {
-        // Usamos solo estilos CSS para el contenedor del error
+        
         return (
             <div className="detalle-wrap" style={{ textAlign: 'center' }}>
                 <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>Producto no encontrado</h2>
@@ -45,7 +45,7 @@ export const ProductDetail = () => {
     return (
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#f9f9f9' }}>
             
-            {/* Breadcrumb - Mantenemos los estilos inline/Tailwind existentes para no rehacer toda la navegación */}
+            {}
             <nav className="breadcrumb p-4 text-sm font-medium bg-white" style={{ 
                 color: '#344e41',
                 borderBottom: '1px solid #e5e7eb',
@@ -61,10 +61,10 @@ export const ProductDetail = () => {
             </nav>
 
             <main className="flex-grow">
-                {/* Contenedor principal con el layout de dos columnas definido en CSS */}
+                {}
                 <section className="detalle-wrap">
                     
-                    {/* Clase: detalle-content aplica display:flex, flex-direction, y el 50/50 en desktop */}
+                    {}
                     <div className="detalle-content">
                         
                         {/* 1. Columna de Imagen */}

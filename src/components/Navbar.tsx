@@ -8,21 +8,20 @@ export const Navbar = () => {
   const { totalItems } = useCart();
   const { user, logout } = useAuth();
   
-  // 2. Crear estado para el menú móvil
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false); 
 
-  // Función para alternar el estado del menú
+ 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // NOTA: He cambiado la clase 'navbar' por 'navbar-container'
-  // y 'menu' por 'navbar-links' para que coincida con el CSS previo.
+  
   return (
     <header
       className="navbar-container" 
       style={{
-        backgroundColor: "#2f9d55", // Usando el color del CSS
+        backgroundColor: "#2f9d55", 
         padding: "0.6rem 1.5rem",
         display: "flex",
         justifyContent: "center",
@@ -46,18 +45,18 @@ export const Navbar = () => {
           </Link>
         </div>
 
-        {/* 4. BOTÓN HAMBURGUESA (Se agrega aquí, justo antes del menú o al final del content) */}
-        {/* Este botón es visible SOLO en móvil gracias a tu CSS (.navbar-toggle) */}
+        {}
+        {}
         <div className="navbar-toggle" onClick={toggleMenu}>
           <span></span>
           <span></span>
           <span></span>
         </div>
 
-        {/* Menú principal (Links) */}
+        {}
         <nav
-          className={`navbar-links ${isMenuOpen ? 'active' : ''}`} // 5. Clase condicional 'active'
-          // Los estilos en línea se eliminan para usar las clases CSS
+          className={`navbar-links ${isMenuOpen ? 'active' : ''}`} 
+          
         >
           <Link to="/" onClick={toggleMenu}>HOME</Link>
           <Link to="/productos" onClick={toggleMenu}>PRODUCTOS</Link>
@@ -67,10 +66,10 @@ export const Navbar = () => {
           <Link to="/contacto" onClick={toggleMenu}>CONTACTO</Link>
         </nav>
 
-        {/* Área derecha: carrito + login/logout */}
+        {}
         <div
           className="navbar-actions" 
-          // Los estilos en línea se eliminan para usar las clases CSS
+          
         >
           {/* Carrito */}
           <Link

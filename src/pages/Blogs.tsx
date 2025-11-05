@@ -2,20 +2,20 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 
-// NOTA: El componente se llama Blogs.
+
 export const Blogs = () => {
    useEffect(() => {
-      document.title = 'HuertoHogar — Blog'; // Puedes cambiar esto a 'HuertoHogar — Nosotros' si corresponde
+      document.title = 'HuertoHogar — Blog'; 
 
       // Opcional: funciones globales si existen
-      // @ts-ignore
+      
       if (typeof window !== 'undefined' && typeof (window as any).renderAuthArea === 'function') {
-         // @ts-ignore
+         
          (window as any).renderAuthArea();
       }
-      // @ts-ignore
+      
       if (typeof window !== 'undefined' && typeof (window as any).updateCartBadge === 'function') {
-         // @ts-ignore
+        
          (window as any).updateCartBadge();
       }
    }, []);
@@ -86,7 +86,7 @@ export const Blogs = () => {
             </section>
             {/* ====== /BLOG ====== */}
 
-            {/* <Footer /> <-- ELIMINADO PARA EVITAR DUPLICIDAD */}
+            {}
          </main>
 
       </div>

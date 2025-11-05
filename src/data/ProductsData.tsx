@@ -39,7 +39,7 @@ export const productsData: Product[] = [
     price: 1000,
     unit: "Kilo",
     imageSrc: naranjas,
-    stock: "150 KL"
+    stock: "200 KL"
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ export const productsData: Product[] = [
     price: 800,
     unit: "Kilo",
     imageSrc: platano,
-    stock: "150 KL"
+    stock: "250 KL"
   },
   {
     id: 4,
@@ -59,7 +59,7 @@ export const productsData: Product[] = [
     price: 900,
     unit: "Kilo",
     imageSrc: zanahoria,
-    stock: "150 KL"
+    stock: "100 KL"
   },
 
   {
@@ -77,20 +77,20 @@ export const productsData: Product[] = [
     title: "Miel Orgánica",
     description: "Miel pura y orgánica producida por apicultores locales. Rica en antioxidantes y con un sabor inigualable, perfecta para endulzar de manera natural tus comidas y bebidas.",
     category: "Verduras",
-    price: 900,
-    unit: "Kilo",
+    price: 5000,
+    unit: "Frasco 500g",
     imageSrc: miel,
-    stock: "150 KL"
+    stock: "50 Frascos"
   },
   {
     id: 7,
     title: "Pimientos",
     description: " Pimientos rojos, amarillos y verdes, ideales para salteados y platos coloridos. Ricos en antioxidantes y vitaminas, estos pimientos añaden un toque vibrante y saludable a cualquier receta.",
     category: "Verduras",
-    price: 900,
+    price: 1500,
     unit: "Kilo",
     imageSrc: pimientos,
-    stock: "150 KL"
+    stock: "120 KL"
   },
   {
     id: 8,

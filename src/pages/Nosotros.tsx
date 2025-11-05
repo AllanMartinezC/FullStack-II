@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 // Asegúrate de importar la imagen
 import frutasYVerdurasImg from '../assets/img/frutas-y-verduras.jpg'; 
-// Si tu Footer es un componente, asegúrate de importarlo
-// import { Footer } from '../components/Footer'; 
+ 
 
 export const Nosotros = () => {
     useEffect(() => {
@@ -19,7 +18,7 @@ export const Nosotros = () => {
 
     return (
         <div className="page-container">
-            {/* 🛑 AQUÍ DEBE IR EL HEADER / NAVBAR GLOBAL DE TU APP SI LO TIENES */}
+            {}
 
             <main>
                 <section
@@ -54,17 +53,17 @@ export const Nosotros = () => {
                         </p>
                     </section>
                     
-                    {/* 🛑 AQUÍ SE INSERTA LA IMAGEN */}
-                    <div style={{ textAlign: 'center', margin: '30px 0' }}> {/* Contenedor para centrar la imagen */}
+                    {}
+                    <div style={{ textAlign: 'center', margin: '30px 0' }}> {}
                         <img 
                             src={frutasYVerdurasImg} 
                             alt="Variedad de frutas y verduras frescas de HuertoHogar" 
                             style={{ 
-                                maxWidth: '100%',     // Asegura que no se desborde en móviles
-                                height: 'auto',        // Mantiene la proporción
-                                borderRadius: '12px',  // Bordes redondeados
-                                boxShadow: '0 8px 20px rgba(0,0,0,0.1)', // Sombra sutil
-                                border: '1px solid #e0e0e0' // Borde suave
+                                maxWidth: '100%',     
+                                height: 'auto',        
+                                borderRadius: '12px',  
+                                boxShadow: '0 8px 20px rgba(0,0,0,0.1)', 
+                                border: '1px solid #e0e0e0' 
                             }} 
                         />
                     </div>

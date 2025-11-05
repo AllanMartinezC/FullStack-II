@@ -42,7 +42,7 @@ function App() {
 
 
 
-      {/* Tus rutas normales, sin modificar el contenedor principal */}
+      {}
 
       <Routes>
 
