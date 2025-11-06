@@ -1220,11 +1220,15 @@ footer {
 }
 
 .detalle-cta a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    
+    /* ✅ AÑADIR ESTAS LÍNEAS */
+    flex-grow: 1; /* Esto hace que el botón tome la otra mitad del espacio */
+    padding: 15px 20px; /* Asegura que ambos botones tengan el mismo tamaño vertical */
 }
 
 /* ====== Breadcrumb ====== */
@@ -1769,18 +1773,22 @@ footer {
 
 
 .detalle-cta .btn-add-to-cart {
-   
     background-color: #5dbb63;
     color: white;
     font-weight: bold;
     font-size: 1.1rem;
-    padding: 15px 20px;
-    border-radius: 10px;
+    padding: 8px 6px;
+    border-radius: 80px;
     box-shadow: 0 5px 15px rgba(93, 187, 99, 0.3);
     transition: background-color 0.3s, transform 0.15s;
     border: none;
-    width: 100%;
+    
+    flex-grow: 1; 
 }
+
+
+
+
 
 .detalle-cta .btn-add-to-cart:hover {
     background-color: #4aa056;
@@ -1834,14 +1842,13 @@ footer {
 .btn-outline {
     background-color: #5dbb63;
     display: inline-block;
-    padding: 5px 10px;
+    padding: 8px 6px;
     border: 2px solid #5dbb63;
-    border-radius: 10px;
+    border-radius: 8px;
     text-decoration: white;
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
 
-    position: absolute; /* Posición absoluta respecto a .categoria-card */
     
     
 }
@@ -2334,3 +2341,4 @@ main {
         font-size: 1.8rem;
     }
 }
+
