@@ -83,7 +83,6 @@ export const Blogs = () => {
         </section>
       </main>
 
-      <Footer />
     </div>
   );
 };
