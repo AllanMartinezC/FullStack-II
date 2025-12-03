@@ -1,14 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import { useAuth } from "../context/AuthContext";
 
 // Expresión regular para validar correos permitidos
-const EMAIL_RE = /^[A-Za-z0-9._%+-]+@((profesor\.)?duocuc\.cl|(profesor\.)?duoc\.cl|gmail\.com)$/;
+const EMAIL_RE = /^[A-Za-z0-9._%+-]+@((profesor\.)?duocuc\.cl|(profesor\.)?duoc\.cl|gmail\.com|huertohogar\.cl)$/;
 
 export default function Login() {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login } = useAuth(); // Usamos el login del contexto
 
   useEffect(() => {
     document.title = "Iniciar sesión - HuertoHogar";
@@ -20,11 +19,13 @@ export default function Login() {
 
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  
   // Estado para mensajes de error o éxito
   const [errorMsg, setErrorMsg] = useState(""); 
   const [successMsg, setSuccessMsg] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formEl = formRef.current;
     if (!formEl) return;
@@ -33,7 +34,7 @@ export default function Login() {
     setSuccessMsg("");
 
     const emailOK = EMAIL_RE.test(email);
-    const passOK = pass.length >= 4 && pass.length <= 10;
+    const passOK = pass.length >= 3; 
 
     if (!formEl.checkValidity() || !emailOK || !passOK) {
       if (!emailOK && emailRef.current) {
@@ -42,40 +43,39 @@ export default function Login() {
         );
       }
       if (!passOK) {
-        setErrorMsg("La contraseña debe tener entre 4 y 10 caracteres.");
+        setErrorMsg("La contraseña es muy corta (mínimo 3 caracteres).");
       }
       formEl.reportValidity();
       return;
     }
 
     try {
+      setIsLoading(true);
       
-      login(email); 
+      // 🔥 Llamada al backend a través del Contexto
+      await login(email, pass); 
       
-      setSuccessMsg("Inicio de sesión exitoso. Redirigiendo..."); 
+      setSuccessMsg("Inicio de sesión exitoso. Redirigiendo...");
       
       setTimeout(() => {
-        navigate("/"); 
+        navigate("/"); // Redirigir al Home
       }, 1000);
 
     } catch (err) {
+      console.error(err);
+      // Si el backend devuelve error (401), cae aquí
       setErrorMsg("Error al iniciar sesión. Verifica tus credenciales.");
+      setIsLoading(false);
     }
   };
 
   return (
-    
     <div className="page-container">
-      {}
-
-      {}
       <main className="auth-main-content">
         
-        {/* La tarjeta blanca del formulario */}
         <div className="auth-card">
           <h2>Iniciar sesión</h2>
 
-          {/* Mensaje de éxito */}
           {successMsg && (
             <p className="success-message" style={{ textAlign: "center", color: "#4aa056", marginTop: 6, fontWeight: 600 }}>
               {successMsg}
@@ -97,7 +97,8 @@ export default function Login() {
                 setEmail(e.target.value);
                 if (emailRef.current) emailRef.current.setCustomValidity("");
               }}
-              placeholder="Correo"
+              placeholder="nombre@duocuc.cl"
+              disabled={isLoading}
             />
 
             {/* Campo Contraseña */}
@@ -107,20 +108,21 @@ export default function Login() {
               ref={passRef}
               type="password"
               required
-              minLength={4}
-              maxLength={10}
+              minLength={3}
+              maxLength={50}
               placeholder="Contraseña"
               value={pass}
               onChange={(e) => setPass(e.target.value)}
+              disabled={isLoading}
             />
 
-            {}
-            <button type="submit">Entrar</button>
+            <button type="submit" disabled={isLoading} style={{ opacity: isLoading ? 0.7 : 1 }}>
+                {isLoading ? "Cargando..." : "Entrar"}
+            </button>
           </form>
 
-          {/* Mensaje de error */}
           {errorMsg && (
-            <p className="errores" style={{ color: 'red', marginTop: '15px' }}>
+            <p className="errores" style={{ color: 'red', marginTop: '15px', textAlign: 'center' }}>
               {errorMsg}
             </p>
           )}
@@ -130,8 +132,6 @@ export default function Login() {
           </p>
         </div>
       </main>
-      
-      {}
     </div>
   );
 }

@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 
 export const Blogs = () => {
+  // 1. Definimos la URL base del backend
+  const IMAGE_BASE_URL = "http://localhost:8080";
+
   useEffect(() => {
     document.title = 'HuertoHogar — Blog';
 
@@ -25,8 +28,9 @@ export const Blogs = () => {
           <article className="blog-card">
             <figure className="blog-media">
               <img
-                src="src/assets/img/temporada_SEPTIEMBRE-F.jpg"
+                src={`${IMAGE_BASE_URL}/images/temporada_SEPTIEMBRE-F.jpg`}
                 alt="Guía visual: frutas de temporada"
+                onError={(e) => { (e.currentTarget as HTMLImageElement).src = "https://via.placeholder.com/400x200?text=Blog+1"; }}
               />
             </figure>
             <div className="blog-content">
@@ -45,8 +49,9 @@ export const Blogs = () => {
           <article className="blog-card">
             <figure className="blog-media">
               <img
-                src="src/assets/img/proveedores-gastronomicos-1.png"
+                src={`${IMAGE_BASE_URL}/images/proveedores-gastronomicos-1.png`}
                 alt="Visita a proveedor local del huerto"
+                onError={(e) => { (e.currentTarget as HTMLImageElement).src = "https://via.placeholder.com/400x200?text=Blog+2"; }}
               />
             </figure>
             <div className="blog-content">
@@ -65,8 +70,9 @@ export const Blogs = () => {
           <article className="blog-card">
             <figure className="blog-media">
               <img
-                src="src/assets/img/frutas-y-verduras.jpg"
+                src={`${IMAGE_BASE_URL}/images/frutas-y-verduras.jpg`}
                 alt="Recetas de aprovechamiento del huerto"
+                onError={(e) => { (e.currentTarget as HTMLImageElement).src = "https://via.placeholder.com/400x200?text=Blog+3"; }}
               />
             </figure>
             <div className="blog-content">

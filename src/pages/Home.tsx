@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import { ProductSlider } from "../components/ProductosSlider";
 
 export const Home = () => {
+  // 1. Definimos la URL base del backend
+  const IMAGE_BASE_URL = "http://localhost:8080";
+
   return (
     <div className="home-page">
       {/* Hero Section */}
@@ -19,15 +22,21 @@ export const Home = () => {
             Ver Productos
           </Link>
         </div>
+        
         <div className="hero-img">
+          {/* 2. CORREGIDO: Usamos la URL del backend */}
           <img
-            src="src/assets/img/Huerto.jpeg"
+            src={`${IMAGE_BASE_URL}/images/Huerto.jpeg`} 
             alt="Foto del Huerto"
             style={{
               width: "400px",
               height: "auto",
               borderRadius: "12px",
               boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+            }}
+            // Opcional: Si la imagen falla, muestra un placeholder
+            onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src = "https://via.placeholder.com/400?text=Foto+Huerto";
             }}
           />
         </div>

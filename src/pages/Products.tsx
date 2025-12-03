@@ -1,84 +1,83 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { productsData } from "../data/ProductsData";
-import { useCart } from "../context/CartContext";
-import { useState } from "react";
-
-type CardProps = {
-  id: number;
-  title: string;
-  price: number;
-  unit: string;
-  imageSrc: string;
-};
-
-const ProductCard = ({ id, title, price, unit, imageSrc }: CardProps) => {
-  const { add } = useCart();
-  const [qty, setQty] = useState(1);
-
-  return (
-    <div className="producto">
-      <Link to={`/detalle/${id}`}>
-        <img src={imageSrc} alt={title} />
-        <h3>{title}</h3>
-      </Link>
-
-      <p className="precio">${price} / {unit}</p>
-
-      <div style={{ display: "flex", gap: 8, alignItems: "center", marginTop: 8 }}>
-        <button onClick={() => setQty(q => Math.max(1, q - 1))}>–</button>
-        <input
-          type="number"
-          min={1}
-          value={qty}
-          onChange={(e) => setQty(Math.max(1, Number(e.target.value) || 1))}
-          style={{ width: 60, textAlign: "center" }}
-        />
-        <button onClick={() => setQty(q => q + 1)}>+</button>
-
-        <button
-          className="btn"
-          onClick={() => add({ productId: id, title, price, unit, imageSrc }, qty)}
-          style={{ marginLeft: 8 }}
-        >
-          Añadir
-        </button>
-      </div>
-    </div>
-  );
-};
+import { getProductos } from "../services/productoService";
+import type { Producto } from "../types";
 
 export const Products = () => {
- const { totalItems } = useCart();
+  const [productos, setProductos] = useState<Producto[]>([]);
+  
+  // URL base para las imágenes
+  const IMAGE_BASE_URL = "http://localhost:8080";
 
- useEffect(() => {
-  document.title = "Productos — HuertoHogar";
- }, []);
+  useEffect(() => {
+    getProductos().then(setProductos);
+  }, []);
 
- return (
-  <div>
-   {}
+  return (
+    <main>
+      <section className="productos-lista">
+        <h2>Todos los productos</h2>
 
-   {}
+        <div className="galeria">
+          {productos.map((p) => (
+            // Usamos 'article' como en Categorias
+            <article key={p.id} className="producto">
+              
+              {/* 🔹 ENLACE PRINCIPAL: Envuelve Imagen + Textos */}
+              <Link to={`/detalle/${p.id}`} style={{ textDecoration: "none", color: "inherit", display: "block" }}>
+                <img 
+                  src={`${IMAGE_BASE_URL}${p.imageUrl}`} 
+                  alt={p.nombre}
+                  // Estilos para que la imagen se vea bien dentro de la tarjeta
+                  style={{ width: "100%", height: "200px", objectFit: "contain", marginBottom: "10px" }} 
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = "https://via.placeholder.com/200?text=Sin+Imagen";
+                  }}
+                />
+                
+                <h3>{p.nombre}</h3>
+                <p className="precio" style={{ fontWeight: "bold", color: "#4aa056" }}>
+                    ${p.precio}
+                </p>
+                <p style={{ color: "#666", fontSize: "0.9rem" }}>
+                    {p.categoria?.nombre || "Sin Categoría"}
+                </p>
+              </Link>
 
-   <main>
-    <section className="productos-lista">
-     <h2>Todos los productos</h2>
-     
-     <div className="galeria">
-      {productsData.map((p) => (
-       <ProductCard
-        key={p.id}
-        id={p.id}
-        title={p.title}
-        price={p.price}
-        unit={p.unit}
-        imageSrc={p.imageSrc}
-       />
-      ))}
-     </div>
-    </section>
-   </main>
-  </div>
- );
+              {/* 🔹 BOTÓN: En un div separado y centrado */}
+              <div style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
+                <Link 
+                  to={`/detalle/${p.id}`} 
+                  className="btn-outline" 
+                  // 🟢 CAMBIO AQUÍ: Fondo verde y letra blanca por defecto
+                  style={{
+                      padding: "8px 16px",
+                      border: "1px solid #4aa056",
+                      borderRadius: "5px",
+                      backgroundColor: "#4aa056", // Fondo Verde
+                      color: "white",             // Letra Blanca (Tu pedido)
+                      textDecoration: "none",
+                      fontWeight: "600",
+                      transition: "all 0.3s ease"
+                  }}
+                  // Efecto Hover: Invierte los colores (Fondo blanco, letra verde)
+                  onMouseOver={(e) => {
+                      e.currentTarget.style.backgroundColor = "white";
+                      e.currentTarget.style.color = "#4aa056";
+                  }}
+                  onMouseOut={(e) => {
+                      e.currentTarget.style.backgroundColor = "#4aa056";
+                      e.currentTarget.style.color = "white";
+                  }}
+                >
+                  Ver Producto
+                </Link>
+              </div>
+
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
 };

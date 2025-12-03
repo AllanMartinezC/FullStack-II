@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-// Asegúrate de importar la imagen
-import frutasYVerdurasImg from '../assets/img/frutas-y-verduras.jpg'; 
- 
+// import { Link } from 'react-router-dom'; // No se usa en este componente, se puede quitar o dejar
 
 export const Nosotros = () => {
+    // 1. Definimos la URL base del backend
+    const IMAGE_BASE_URL = "http://localhost:8080";
+
     useEffect(() => {
         document.title = 'HuertoHogar — Nosotros';
         
@@ -18,8 +18,6 @@ export const Nosotros = () => {
 
     return (
         <div className="page-container">
-            {}
-
             <main>
                 <section
                     className="nosotros"
@@ -40,6 +38,23 @@ export const Nosotros = () => {
                         chilenas con el campo, promoviendo un estilo de vida saludable y sostenible.
                     </p>
 
+                    {/* 2. Insertamos la imagen aquí, donde tenías el espacio vacío */}
+                    <div style={{ textAlign: 'center', margin: '30px 0' }}> 
+                        <img 
+                            src={`${IMAGE_BASE_URL}/images/Huerto.jpeg`} 
+                            alt="Nuestro Huerto"
+                            style={{ 
+                                maxWidth: '100%', 
+                                height: 'auto', 
+                                borderRadius: '12px', 
+                                boxShadow: '0 4px 12px rgba(0,0,0,0.1)' 
+                            }}
+                            onError={(e) => {
+                                (e.currentTarget as HTMLImageElement).src = "https://via.placeholder.com/800x400?text=Foto+Huerto";
+                            }}
+                        />
+                    </div>
+
                     <section
                         className="nosotros-mision"
                         style={{ maxWidth: 1000, margin: '0 auto', padding: 20 }}
@@ -53,25 +68,8 @@ export const Nosotros = () => {
                         </p>
                     </section>
                     
-                    {}
-                    <div style={{ textAlign: 'center', margin: '30px 0' }}> {}
-                        <img 
-                            src={frutasYVerdurasImg} 
-                            alt="Variedad de frutas y verduras frescas de HuertoHogar" 
-                            style={{ 
-                                maxWidth: '100%',     
-                                height: 'auto',        
-                                borderRadius: '12px',  
-                                boxShadow: '0 8px 20px rgba(0,0,0,0.1)', 
-                                border: '1px solid #e0e0e0' 
-                            }} 
-                        />
-                    </div>
-
                 </section>
             </main>
-            
-    
         </div>
     );
 };
